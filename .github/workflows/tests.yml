@@ -1,0 +1,27 @@
+name: Calculator Test Robot
+
+# This tells the robot to wake up on every push or pull request
+on: [push, pull_request]
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    
+    # Mandates Node24 execution environment to bypass deprecation warnings
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+    steps:
+    # Step 1: Securely fetch your repository code onto the runner
+    - name: Check out repository code
+      uses: actions/checkout@v4
+
+    # Step 2: Provision a clean Python 3.11 environment
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    # Step 3: Run the test suite using standard unittest execution
+    - name: Run Python Unit Tests
+      run: python -m unittest discover -s . -p "test_*.py"
