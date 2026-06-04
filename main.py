@@ -16,4 +16,3 @@ def divide(x,y):
     else:
         return "Cannot divide by zero"
 print(divide(10,2))
-print(divide(10,0))
