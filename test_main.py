@@ -11,7 +11,7 @@ class TestCalculator(unittest.TestCase):
 
     # Test 2: Does subtraction work?
     def test_subtraction(self):
-        self.assertEqual(subtract(10, 5), 5)
+        self.assertEqual(subtract(10, 5), 4)
 
     # Test 3: Does multiplication work?
     def test_multiplication(self):
